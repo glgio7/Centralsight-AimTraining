@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aimlab Project</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #262626;
+        min-height: 100vh;
+        max-width: 100vw;
+        overflow-x: hidden;
+      }
+
+      header {
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        height: 72px;
+        background-color: #000;
+        color: #00ff80;
+        font-size: 2.5rem;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .scoreBoard {
+        width: 720px;
+        height: 60px;
+        background-color: #000;
+        border-radius: 8px 8px 0 0;
+        color: #fff;
+        font-size: 2rem;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .score {
+        font-weight: normal;
+        margin-left: 12px;
+        color: #00ff80;
+      }
+      canvas {
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Central Sight</header>
+    <div class="scoreBoard">
+      Score:
+      <div class="score">0</div>
+    </div>
+    <canvas width="720" height="480"></canvas>
+  </body>
+  <script>
+    let tela = document.querySelector("canvas");
+    let pincel = tela.getContext("2d");
+    pincel.fillStyle = "#111";
+    pincel.fillRect(0, 0, 720, 480);
+    let raio = 10;
+    let xAleatorio;
+    let yAleatorio;
+    let score = 0;
+    let scoreBoard = document.querySelector(".score");
+
+    function desenhaCirculo(x, y, raio, cor) {
+      pincel.fillStyle = cor;
+      pincel.beginPath();
+      pincel.arc(x, y, raio, 0, 2 * Math.PI);
+      pincel.fill();
+    }
+
+    function limpaTela() {
+      pincel.clearRect(0, 0, 720, 480);
+      pincel.fillStyle = "#111";
+      pincel.fillRect(0, 0, 720, 480);
+    }
+    function desenhaAlvo(x, y) {
+      desenhaCirculo(x, y, raio + 20, "#00ff80");
+      desenhaCirculo(x, y, raio + 10, "#333");
+      desenhaCirculo(x, y, raio, "#00ff80");
+    }
+
+    function geraPosicao(maximo) {
+      return Math.floor(Math.random() * maximo);
+    }
+    function atualizaTela() {
+      limpaTela();
+      xAleatorio = geraPosicao(720);
+      yAleatorio = geraPosicao(480);
+      desenhaAlvo(xAleatorio, yAleatorio);
+    }
+
+    setInterval(atualizaTela, 1000);
+
+    function addScore(props) {
+      let x = props.pageX - tela.offsetLeft;
+      let y = props.pageY - tela.offsetTop;
+      if (
+        x > xAleatorio - raio &&
+        x < xAleatorio + raio &&
+        y > yAleatorio - raio &&
+        y < yAleatorio + raio
+      ) {
+        score += 10;
+        scoreBoard.innerHTML = score;
+      }
+    }
+    tela.onclick = addScore;
+  </script>
+</html>
