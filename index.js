@@ -2,20 +2,36 @@ let tela = document.querySelector("canvas");
 let pincel = tela.getContext("2d");
 pincel.fillStyle = "#111";
 pincel.fillRect(0, 0, 720, 480);
-let raio = 10;
 let xAleatorio;
 let yAleatorio;
+let raio = 10;
 let score = 0;
 let scoreBoard = document.querySelector(".score");
-let settings = document.getElementById("settings");
+const settings = document.getElementById("settings");
 const toggleSettings = () => {
   document.querySelector("ul").classList.toggle("active");
 };
+const refresh = document.getElementById("refresh");
+const refreshPage = () => {
+  window.location.reload();
+};
 
-//Preciso descobrir como mudar o setInterval no onclick destes elementos ↓↓↓ se alguem puder me ajudar, meu discord: glgio7 #3740
-const easyMode = document.getElementById("easy");
-const normalMode = document.getElementById("normal");
-const hardMode = document.getElementById("hard");
+// ↓↓↓  Meu Discord  ↓↓↓ //
+// ↑↑↑  glgio7 #3740 ↑↑↑ //
+const easy = document.getElementById("easy");
+const normal = document.getElementById("normal");
+const hard = document.getElementById("hard");
+const custom = document.getElementById("custom");
+const valorCustom = () => {
+  let x = prompt(
+    "Digite um intervalo em ms (apenas números). Exemplo: 0.5s = 500ms"
+  );
+  if (x > 99 && x < 3000) {
+    return x;
+  } else {
+    return alert("Valor inválido! Temos um problema Houston!")
+  }
+};
 
 function desenhaCirculo(x, y, raio, cor) {
   pincel.fillStyle = cor;
@@ -30,8 +46,8 @@ function limpaTela() {
   pincel.fillRect(0, 0, 720, 480);
 }
 function desenhaAlvo(x, y) {
-  desenhaCirculo(x, y, raio + 20, "#00ff80");
-  desenhaCirculo(x, y, raio + 10, "#333");
+  desenhaCirculo(x, y, raio + 24, "#00ff80");
+  desenhaCirculo(x, y, raio + 20, "#333");
   desenhaCirculo(x, y, raio, "#00ff80");
 }
 
@@ -45,9 +61,6 @@ function atualizaTela() {
   yAleatorio = geraPosicao(480);
   desenhaAlvo(xAleatorio, yAleatorio);
 }
-
-setInterval(atualizaTela, 1000);
-
 function addScore(props) {
   let x = props.pageX - tela.offsetLeft;
   let y = props.pageY - tela.offsetTop;
@@ -69,5 +82,46 @@ function addScore(props) {
     scoreBoard.innerHTML = score;
   }
 }
-tela.onclick = addScore;
+
+let timer = setInterval(atualizaTela, 900);
+
+function hardMode() {
+  clearInterval(timer);
+  timer = setInterval(atualizaTela, 650);
+  hard.style.color = "#00ff80";
+  easy.style.color = "#fff";
+  normal.style.color = "#fff";
+  custom.style.color = "#fff";
+}
+function easyMode() {
+  clearInterval(timer);
+  timer = setInterval(atualizaTela, 1300);
+  easy.style.color = "#00ff80";
+  hard.style.color = "#fff";
+  normal.style.color = "#fff";
+  custom.style.color = "#fff";
+}
+function normalMode() {
+  clearInterval(timer);
+  timer = setInterval(atualizaTela, 900);
+  normal.style.color = "#00ff80";
+  hard.style.color = "#fff";
+  easy.style.color = "#fff";
+  custom.style.color = "#fff";
+}
+function customMode() {
+  clearInterval(timer);
+  timer = setInterval(atualizaTela, valorCustom());
+  custom.style.color = "#00ff80";
+  normal.style.color = "#fff";
+  hard.style.color = "#fff";
+  easy.style.color = "#fff";
+}
+
+hard.onclick = hardMode;
+normal.onclick = normalMode;
+easy.onclick = easyMode;
+custom.onclick = customMode;
 settings.onclick = toggleSettings;
+refresh.onclick = refreshPage;
+tela.onclick = addScore;
