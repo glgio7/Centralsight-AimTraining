@@ -4,7 +4,7 @@ pincel.fillStyle = "#111";
 pincel.fillRect(0, 0, 720, 480);
 let xAleatorio;
 let yAleatorio;
-let raio = 10;
+let raio = 14;
 let score = 0;
 let scoreBoard = document.querySelector(".score");
 const settings = document.getElementById("settings");
