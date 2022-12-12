@@ -24,12 +24,12 @@ const hard = document.getElementById("hard");
 const custom = document.getElementById("custom");
 const valorCustom = () => {
   let x = prompt(
-    "Digite um intervalo em ms (apenas números). Exemplo: 0.5s = 500ms"
+    "Digite um intervalo em ms (apenas números entre 99 e 2000). Exemplo: 0.5s = 500ms"
   );
-  if (x > 99 && x < 3000) {
+  if (x > 99 && x <= 2000) {
     return x;
   } else {
-    return alert("Valor inválido! Temos um problema Houston!")
+    return alert("Valor inválido! Houston, temos um problema!")
   }
 };
 
@@ -72,6 +72,7 @@ function addScore(props) {
   ) {
     score += 10;
     scoreBoard.innerHTML = score;
+    limpaTela();
   } else if (
     x > xAleatorio - raio - 10 &&
     x < xAleatorio + raio + 10 &&
@@ -80,6 +81,7 @@ function addScore(props) {
   ) {
     score += 5;
     scoreBoard.innerHTML = score;
+    limpaTela();
   }
 }
 
