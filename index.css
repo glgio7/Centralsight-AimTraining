@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +15,8 @@ background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgb(0, 120, 60) 75%, rg
   min-height: 100vh;
   max-width: 100vw;
   overflow-x: hidden;
+  position: relative;
+    z-index: 5;
 }
 
 header {
@@ -21,15 +25,52 @@ header {
   z-index: 99;
   top: 0;
   height: 72px;
-  background-color: #000;
-  color: #00ff80;
-  font-size: 2.5rem;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: bold;
+  background-color: rgba(0,0,0, .85);
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+h1 {
+  color: #00ff80;
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: 'Righteous', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation-name: opening;
+  animation-duration: 500ms;
+  position: relative;
+}
+
+h1::after{
+  content: '';
+  position: absolute;
+  width: inherit;
+  height: 1px;
+  border-radius: 100%;
+  background: #00ff80;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  opacity: 0.75;
+  margin: 0 auto;
+  animation: flash;
+  animation-duration: 2.5s;
+  
+}
+
+.background {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: .1;
+  background-position: center;
+  background-size: cover;
+  background-image: url("/img/background.jpg");}
 canvas {
   border-radius: 0 0 10px 10px;
 }
@@ -88,3 +129,24 @@ li {
 #refresh {
   font-size: 1.75rem;
 }
+
+/* /////////// css animations //////////// */
+
+
+@keyframes opening{
+  0% {
+    transform: rotatex(180deg);
+    transform: scaleY(0);
+   }
+  
+   100% {
+    transform: rotatex(0deg);
+    transform: scaleY(1);
+   }
+  }
+@keyframes flash{
+to {
+    transform: rotateY(360deg);
+   }
+  }
+  
