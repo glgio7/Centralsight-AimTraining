@@ -15,12 +15,11 @@
 <body>
   <header>
     <h1>Central Sight</h1>
-    <div class="pulsar"></div>
   </header>
-    <div class="background"></div>
+  <div class="container">
     <div class="scoreBoard">
       <div>
-        Score:
+        Score :
         <div class="score">0</div>
       </div>
       <ul>
@@ -34,7 +33,14 @@
         <div id="refresh">refresh</div>
       </span>
     </div>
-    <canvas width="720" height="480"></canvas>
+    <canvas width="1024" height="540" id="desktop"></canvas>
+    <canvas width="480" height="300" id="mobile"></canvas>
+    
+    <div class="select-mode">
+      <button onclick="desktopGame()">Desktop</button>
+      <button onclick="mobileGame()">Mobile - Paisagem</button>
+    </div>
+  </div>
 </body>
 <script src="./index.js"></script>
 
