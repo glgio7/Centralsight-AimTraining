@@ -51,9 +51,9 @@ function desktopGame() {
     pincel.fillRect(0, 0, tela.width, tela.height);
   }
   function desenhaAlvo(x, y) {
-    desenhaCirculo(x, y, raio + 24, "#00ff80");
-    desenhaCirculo(x, y, raio + 20, "#333");
-    desenhaCirculo(x, y, raio, "#00ff80");
+    desenhaCirculo(x, y, raio + 24, "#cca400");
+    desenhaCirculo(x, y, raio + 20, "#111");
+    desenhaCirculo(x, y, raio, "#cca400");
   }
 
   function geraPosicao(maximo) {
@@ -159,9 +159,9 @@ function mobileGame() {
     pincelMobile.fillRect(0, 0, telaMobile.width, telaMobile.height);
   }
   function desenhaAlvo(x, y) {
-    desenhaCirculo(x, y, raio + 18, "#00ff80");
-    desenhaCirculo(x, y, raio + 14, "#333");
-    desenhaCirculo(x, y, raio, "#00ff80");
+    desenhaCirculo(x, y, raio + 18, "#cca400");
+    desenhaCirculo(x, y, raio + 14, "#111");
+    desenhaCirculo(x, y, raio, "#cca400");
   }
 
   function geraPosicao(maximo) {

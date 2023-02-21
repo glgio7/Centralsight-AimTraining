@@ -24,25 +24,30 @@ body {
 
 header {
   width: 100vw;
-  z-index: 99;
   height: 72px;
+  
+  z-index: 99;
+  
   background-color: rgba(20, 20, 20, .85);
+  
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 h1 {
-  color: #00ff80;
-  text-align: center;
   font-size: 3rem;
+  text-align: center;
   font-family: 'Teko', sans-serif;
+  
+  color: #00ff80;
 }
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
   margin-top: 60px;
 }
 
@@ -56,84 +61,115 @@ h1 {
 
 
 ul {
-  transition: all ease 200ms;
-  opacity: 0;
-  pointer-events: none;
-  display: inline-flex;
-  list-style: none;
   position: absolute;
   right: calc(54px + 1rem);
+  
+  display: inline-flex;
+  
+  opacity: 0;
+  pointer-events: none;
+  
+  list-style: none;
+  
+  transition: all ease 200ms;
 }
 
 ul.active {
   pointer-events: all;
+  
   opacity: 1;
 }
 
 li {
-  font-family: "Teko", sans-serif;
-  margin-inline: 0.75rem;
-  font-size: 1rem;
   cursor: pointer;
+
+  font-family: "Teko", sans-serif;
+  font-size: 1.25rem;
+  
+  margin-inline: 0.75rem;
 }
 
-.scoreBoard {
-  font-family: "Teko", sans-serif;
-  position: relative;
+.score-board {
   width: 1024px;
   height: 60px;
-  background-color: #000;
-  border-radius: 8px 8px 0 0;
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
+
+  position: relative;
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
+  background-color: #000;
+  color: #fff;
+  
+  border-radius: 8px 8px 0 0;
+  
+  font-family: "Teko", sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  
   padding-inline: 1rem;
 }
 
-.scoreBoard div {
+.score-board div {
   display: flex;
 }
 
 .score {
   font-weight: normal;
+
   margin-left: 12px;
+  
   color: #00ff80;
 }
 
-.material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+.symbols {
   cursor: pointer;
+  
   width: 54px;
+  
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  
   display: flex;
+  
   align-items: center;
 }
 
+
+#settings,
 #refresh {
+  margin-right: .25rem;
+  
   font-size: 1.75rem;
 }
 
 .select-mode {
-  background-color: #141414;
   display: flex;
   flex-direction: column;
+  
   width: 1024px;
+  
+  background-color: #141414;
+  
   border-radius: 0px 0px 8px 8px;
   box-shadow: 0px 18px 24px rgba(255,255,255, 0.75);
 }
 
 button {
-  font-family: "Teko", sans-serif;
   cursor: pointer;
+  
+  font-family: "Teko", sans-serif;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.25rem;
+  
   background-color: #404040;
   color: #FFF;
-  border: 0;
-  margin-block: .5rem;
+  
   height: 2rem;
+  margin-block: .5rem;
+  
+  border: 0;
+  
   transition: all 250ms;
 }
 
@@ -150,24 +186,27 @@ button:hover {
 
   .container {
     justify-content: center;
+    
     min-height: calc(100vh - 256px);
+    
     margin-top: 12px;
   }
 
   #settings,
   #refresh {
+    margin-right: 0;
     margin-inline: .25rem;
   }
 
   li {
-    margin-inline: .75rem;
     font-size: 1rem;
-    cursor: pointer;
+    
+    margin-inline: .75rem;
   }
 
-  .scoreBoard {
-    max-width: 95vw;
+  .score-board {
     width: 480px;
+    max-width: 95vw;
   }
 
   canvas {
