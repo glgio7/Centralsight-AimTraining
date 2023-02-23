@@ -51,9 +51,9 @@ function desktopGame() {
     pincel.fillRect(0, 0, tela.width, tela.height);
   }
   function desenhaAlvo(x, y) {
-    desenhaCirculo(x, y, raio + 24, "#cca400");
+    desenhaCirculo(x, y, raio + 24, "#03fcad");
     desenhaCirculo(x, y, raio + 20, "#111");
-    desenhaCirculo(x, y, raio, "#cca400");
+    desenhaCirculo(x, y, raio, "#03fcad");
   }
 
   function geraPosicao(maximo) {
@@ -95,7 +95,7 @@ function desktopGame() {
   function normalMode() {
     clearInterval(timer);
     timer = setInterval(atualizaTela, 900);
-    normal.style.color = "#00ff80";
+    normal.style.color = "#03fcfc";
     hard.style.color = "#fff";
     easy.style.color = "#fff";
     custom.style.color = "#fff";
@@ -104,7 +104,7 @@ function desktopGame() {
   function hardMode() {
     clearInterval(timer);
     timer = setInterval(atualizaTela, 650);
-    hard.style.color = "#00ff80";
+    hard.style.color = "#03fcfc";
     easy.style.color = "#fff";
     normal.style.color = "#fff";
     custom.style.color = "#fff";
@@ -112,7 +112,7 @@ function desktopGame() {
   function easyMode() {
     clearInterval(timer);
     timer = setInterval(atualizaTela, 1300);
-    easy.style.color = "#00ff80";
+    easy.style.color = "#03fcfc";
     hard.style.color = "#fff";
     normal.style.color = "#fff";
     custom.style.color = "#fff";
@@ -120,7 +120,7 @@ function desktopGame() {
   function customMode() {
     clearInterval(timer);
     timer = setInterval(atualizaTela, valorCustom());
-    custom.style.color = "#00ff80";
+    custom.style.color = "#03fcfc";
     normal.style.color = "#fff";
     hard.style.color = "#fff";
     easy.style.color = "#fff";
@@ -159,9 +159,9 @@ function mobileGame() {
     pincelMobile.fillRect(0, 0, telaMobile.width, telaMobile.height);
   }
   function desenhaAlvo(x, y) {
-    desenhaCirculo(x, y, raio + 18, "#cca400");
+    desenhaCirculo(x, y, raio + 18, "#03fcad");
     desenhaCirculo(x, y, raio + 14, "#111");
-    desenhaCirculo(x, y, raio, "#cca400");
+    desenhaCirculo(x, y, raio, "#03fcad");
   }
 
   function geraPosicao(maximo) {
@@ -203,7 +203,7 @@ function mobileGame() {
   function normalMode() {
     clearInterval(timer);
     timer = setInterval(atualizaTela, 900);
-    normal.style.color = "#00ff80";
+    normal.style.color = "#03fcfc";
     hard.style.color = "#fff";
     easy.style.color = "#fff";
     custom.style.color = "#fff";
@@ -212,7 +212,7 @@ function mobileGame() {
   function hardMode() {
     clearInterval(timer);
     timer = setInterval(atualizaTela, 650);
-    hard.style.color = "#00ff80";
+    hard.style.color = "#03fcfc";
     easy.style.color = "#fff";
     normal.style.color = "#fff";
     custom.style.color = "#fff";
@@ -220,7 +220,7 @@ function mobileGame() {
   function easyMode() {
     clearInterval(timer);
     timer = setInterval(atualizaTela, 1300);
-    easy.style.color = "#00ff80";
+    easy.style.color = "#03fcfc";
     hard.style.color = "#fff";
     normal.style.color = "#fff";
     custom.style.color = "#fff";
@@ -228,7 +228,7 @@ function mobileGame() {
   function customMode() {
     clearInterval(timer);
     timer = setInterval(atualizaTela, valorCustom());
-    custom.style.color = "#00ff80";
+    custom.style.color = "#03fcfc";
     normal.style.color = "#fff";
     hard.style.color = "#fff";
     easy.style.color = "#fff";
