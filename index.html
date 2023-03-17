@@ -6,21 +6,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,700;1,900&display=swap"
+    rel="stylesheet" />
   <link href="./index.css" rel="stylesheet" />
-  <title>Aimlab Project</title>
+  <title>Central Sight - Aimlab</title>
 </head>
 
 <body>
   <header>
-    <h1>Central Sight</h1>
+    <h1>
+      <img class="header__logo" src="/img/centralsight-logo.png" alt="CentralSight Logo">
+      <span class="header__text">Central Sight</span>
+    </h1>
   </header>
   <div class="container">
     <div class="score-board">
       <div>
         Score :
-        <div class="score">0</div>
+        <span class="score-board__counter">0</span>
       </div>
       <ul>
         <li id="easy">Fácil</li>
@@ -28,14 +33,15 @@
         <li id="hard">Difícil</li>
         <li id="custom">Personalizado</li>
       </ul>
-      <div class="material-symbols-outlined symbols">
-        <div id="settings">settings</div>
-        <div id="refresh">refresh</div>
+      <div class="symbols-container">
+        <div id="settings"><img class="symbols" src="/img/settings.svg" alt="Settings" /></div>
+        <div id="refresh"><img class="symbols" src="/img/restart.svg" alt="Restart" /></div>
       </div>
     </div>
+
     <canvas width="1024" height="540" id="desktop"></canvas>
     <canvas width="480" height="300" id="mobile"></canvas>
-    
+
     <div class="select-mode">
       <button onclick="desktopGame()">Desktop</button>
       <button onclick="mobileGame()">Mobile - Paisagem</button>
